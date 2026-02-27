@@ -1,0 +1,1601 @@
+{
+  "metadata": {
+    "framework": "Polydrug Interaction Matrix",
+    "version": "1.0",
+    "scope": "13 substances, high-risk combinations only",
+    "population": "Adult recreational users 18-35, US context",
+    "sources": ["TripSit", "PubMed", "CDC SUDORS", "Drugs.com", "FDA adverse event reporting"],
+    "evidence_threshold": "Moderate minimum"
+  },
+  "body_weight_scaling": {
+    "Alcohol": { "weight_dependent": true, "note": "Dosing based on standard drinks; effect varies with body water content." },
+    "Benzodiazepines": { "weight_dependent": true, "note": "Doses typically in mg/kg for therapeutic use; recreational doses weight-sensitive." },
+    "Cannabis": { "weight_dependent": false, "note": "THC effects largely independent of body weight; titration by inhalation." },
+    "Cocaine": { "weight_dependent": true, "note": "Cardiovascular effects and toxicity correlate with body mass." },
+    "Ketamine": { "weight_dependent": true, "note": "Clinical dosing in mg/kg; recreational users often dose by feel, but toxicity weight-related." },
+    "Kratom": { "weight_dependent": true, "note": "Alkaloid effects scale with body weight; typical doses in grams." },
+    "LSD": { "weight_dependent": false, "note": "Microgram doses; effects minimally influenced by body weight." },
+    "MDMA": { "weight_dependent": true, "note": "Typical dose ~1.5 mg/kg; heavier individuals require more for same effect." },
+    "Nitrous_Oxide": { "weight_dependent": false, "note": "Inhaled gas; effect depends on concentration and duration, not body weight." },
+    "Opioids_(Heroin/Fentanyl)": { "weight_dependent": true, "note": "Respiratory depression risk scales with mg/kg; fentanyl's narrow window highly weight-sensitive." },
+    "Psilocybin": { "weight_dependent": false, "note": "Effects primarily set and setting; body weight minor factor." },
+    "Suboxone": { "weight_dependent": true, "note": "Buprenorphine dosing in mg; sublingual absorption variable, but weight influences plasma levels." },
+    "Tramadol": { "weight_dependent": true, "note": "Doses in mg; seizure risk and serotonin syndrome may be weight-related." }
+  },
+  "substance_dosage": {
+    "Alcohol": {
+      "threshold_dose": "10 g ethanol",
+      "moderate_dose": "20-40 g ethanol",
+      "high_dose": ">60 g ethanol",
+      "lethal_dose_reference": "LD50 ~5-8 g/kg (350-560 g for 70 kg adult); acute poisoning >300 g",
+      "dose_unit": "g ethanol"
+    },
+    "Benzodiazepines": {
+      "threshold_dose": "0.25 mg alprazolam equivalent",
+      "moderate_dose": "0.5-2 mg alprazolam equivalent",
+      "high_dose": ">4 mg alprazolam equivalent",
+      "lethal_dose_reference": "LD50 unknown in humans; lethal solo rare, but >10 mg combined with depressants dangerous",
+      "dose_unit": "mg alprazolam equivalent"
+    },
+    "Cannabis": {
+      "threshold_dose": "2.5 mg THC",
+      "moderate_dose": "5-20 mg THC",
+      "high_dose": ">50 mg THC",
+      "lethal_dose_reference": "No documented lethal overdose; estimated LD50 >> 1 g/kg THC",
+      "dose_unit": "mg THC"
+    },
+    "Cocaine": {
+      "threshold_dose": "10 mg",
+      "moderate_dose": "50-100 mg",
+      "high_dose": ">200 mg",
+      "lethal_dose_reference": "LD50 ~500 mg-1 g (variable by route); 1.2 g reported fatal",
+      "dose_unit": "mg"
+    },
+    "Ketamine": {
+      "threshold_dose": "10 mg",
+      "moderate_dose": "50-100 mg",
+      "high_dose": ">200 mg",
+      "lethal_dose_reference": "LD50 ~600 mg/kg in animals; human fatalities rare >500 mg with depressants",
+      "dose_unit": "mg"
+    },
+    "Kratom": {
+      "threshold_dose": "2 g dried leaf",
+      "moderate_dose": "3-6 g",
+      "high_dose": ">8 g",
+      "lethal_dose_reference": "No documented LD50; fatalities only with adulterants",
+      "dose_unit": "g dried leaf"
+    },
+    "LSD": {
+      "threshold_dose": "20 µg",
+      "moderate_dose": "50-150 µg",
+      "high_dose": ">300 µg",
+      "lethal_dose_reference": "LD50 ~100 mg/kg in animals; human LD50 > 10 mg",
+      "dose_unit": "µg"
+    },
+    "MDMA": {
+      "threshold_dose": "50 mg",
+      "moderate_dose": "80-120 mg",
+      "high_dose": ">150 mg",
+      "lethal_dose_reference": "LD50 ~ 10-20 mg/kg; fatalities > 200 mg with hyperthermia",
+      "dose_unit": "mg"
+    },
+    "Nitrous_Oxide": {
+      "threshold_dose": "1-2 breaths (concentration dependent)",
+      "moderate_dose": "1-2 balloons (8 g cartridge equivalent)",
+      "high_dose": ">10 balloons continuously",
+      "lethal_dose_reference": "Hypoxia from oxygen displacement; no toxic LD50",
+      "dose_unit": "cartridges"
+    },
+    "Opioids_(Heroin/Fentanyl)": {
+      "threshold_dose": "5 mg morphine equivalent",
+      "moderate_dose": "10-30 mg morphine equivalent",
+      "high_dose": ">50 mg morphine equivalent (fentanyl: 100 µg high)",
+      "lethal_dose_reference": "Morphine LD50 ~200 mg; fentanyl LD50 ~2 mg for opioid-naive",
+      "dose_unit": "mg morphine equivalent"
+    },
+    "Psilocybin": {
+      "threshold_dose": "5 mg psilocybin",
+      "moderate_dose": "10-25 mg psilocybin",
+      "high_dose": ">30 mg psilocybin",
+      "lethal_dose_reference": "LD50 > 1 g/kg in animals; no human fatalities",
+      "dose_unit": "mg psilocybin"
+    },
+    "Suboxone": {
+      "threshold_dose": "2 mg buprenorphine",
+      "moderate_dose": "4-8 mg",
+      "high_dose": ">16 mg",
+      "lethal_dose_reference": "Ceiling effect limits respiratory depression; deaths only with benzodiazepines/alcohol",
+      "dose_unit": "mg buprenorphine"
+    },
+    "Tramadol": {
+      "threshold_dose": "50 mg",
+      "moderate_dose": "100-200 mg",
+      "high_dose": ">300 mg",
+      "lethal_dose_reference": "LD50 ~ 500 mg/kg in animals; human fatalities > 1 g with seizures",
+      "dose_unit": "mg"
+    }
+  },
+  "interactions": {
+    "Alcohol": {
+      "Benzodiazepines": {
+        "risk_level": 9,
+        "interaction_type": "Dangerous",
+        "mechanism": "Synergistic CNS depression leading to respiratory failure and coma.",
+        "evidence": "High",
+        "citation": "CDC SUDORS 2024; TripSit Combination Chart 2024",
+        "source_url": "https://www.cdc.gov/nchs/nvss/vsrr/drug-overdose-data.htm",
+        "body_systems": {
+          "respiratory": { "score": 9, "evidence": "High" },
+          "cardiac": { "score": 2, "evidence": "Moderate" },
+          "hepatic": { "score": 2, "evidence": "Moderate" },
+          "neurological": { "score": 8, "evidence": "High" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 2.5,
+        "threshold_interaction_dose": { "Alcohol": "30 g", "Benzodiazepines": "1 mg alprazolam equivalent" },
+        "notes": "Both potentiate GABA; benzodiazepine clearance may be reduced by alcohol.",
+        "contraindications": ["respiratory disease", "sleep apnea", "hepatic impairment", "elderly"]
+      },
+      "Cannabis": {
+        "risk_level": 4,
+        "interaction_type": "Caution",
+        "mechanism": "Additive cognitive and motor impairment, increased accident risk.",
+        "evidence": "Moderate",
+        "citation": "TripSit Combination Chart 2024; Sewell et al. 2009",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Moderate" },
+          "cardiac": { "score": 2, "evidence": "Moderate" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 5, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 0, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.3,
+        "threshold_interaction_dose": { "Alcohol": "20 g", "Cannabis": "10 mg THC" },
+        "notes": "THC may increase alcohol absorption; both impair driving.",
+        "contraindications": ["driving", "operating machinery"]
+      },
+      "Cocaine": {
+        "risk_level": 7,
+        "interaction_type": "Dangerous",
+        "mechanism": "Formation of cocaethylene, increasing cardiotoxicity and risk of sudden death.",
+        "evidence": "High",
+        "citation": "Drugs.com Interaction Checker; Pennings et al. 2002",
+        "source_url": "https://www.drugs.com/drug-interactions/",
+        "body_systems": {
+          "respiratory": { "score": 3, "evidence": "Moderate" },
+          "cardiac": { "score": 9, "evidence": "High" },
+          "hepatic": { "score": 4, "evidence": "Moderate" },
+          "neurological": { "score": 5, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 4, "evidence": "Moderate" },
+          "renal": { "score": 2, "evidence": "Low" }
+        },
+        "dose_multiplier": 2.0,
+        "threshold_interaction_dose": { "Alcohol": "20 g", "Cocaine": "50 mg" },
+        "notes": "Cocaethylene has longer half-life; increases myocardial oxygen demand.",
+        "contraindications": ["cardiovascular disease", "hypertension", "arrhythmia history"]
+      },
+      "Ketamine": {
+        "risk_level": 8,
+        "interaction_type": "Dangerous",
+        "mechanism": "Profound CNS depression, respiratory arrest.",
+        "evidence": "High",
+        "citation": "TripSit; Morgan et al. 2012",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 9, "evidence": "High" },
+          "cardiac": { "score": 3, "evidence": "Moderate" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 7, "evidence": "High" },
+          "thermoregulatory": { "score": 2, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 3.0,
+        "threshold_interaction_dose": { "Alcohol": "20 g", "Ketamine": "50 mg" },
+        "notes": "Ketamine's dissociative effects mask intoxication, leading to overconsumption.",
+        "contraindications": ["respiratory disease", "seizure disorder"]
+      },
+      "Kratom": {
+        "risk_level": 5,
+        "interaction_type": "Caution",
+        "mechanism": "Additive sedative effects, especially at high kratom doses.",
+        "evidence": "Moderate",
+        "citation": "TripSit; CDC SUDORS (kratom co-detected with alcohol)",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 4, "evidence": "Moderate" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 3, "evidence": "Low" },
+          "neurological": { "score": 4, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.5,
+        "threshold_interaction_dose": { "Alcohol": "30 g", "Kratom": "5 g" },
+        "notes": "Kratom's opioid-like effects at high doses compound alcohol sedation.",
+        "contraindications": ["hepatic impairment", "respiratory disease"]
+      },
+      "LSD": {
+        "risk_level": 2,
+        "interaction_type": "Low Risk",
+        "mechanism": "No significant physical interaction; alcohol may dull the psychedelic experience.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 1, "evidence": "Low" },
+          "cardiac": { "score": 1, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 2, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 0, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.0,
+        "threshold_interaction_dose": { "Alcohol": "N/A", "LSD": "N/A" },
+        "notes": "Psychological effects may be altered, but no physical synergy.",
+        "contraindications": []
+      },
+      "MDMA": {
+        "risk_level": 6,
+        "interaction_type": "Caution",
+        "mechanism": "Increased risk of dehydration, hyperthermia, and neurotoxicity.",
+        "evidence": "Moderate",
+        "citation": "TripSit; Parrott 2002",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Low" },
+          "cardiac": { "score": 5, "evidence": "Moderate" },
+          "hepatic": { "score": 3, "evidence": "Low" },
+          "neurological": { "score": 6, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 7, "evidence": "High" },
+          "renal": { "score": 3, "evidence": "Moderate" }
+        },
+        "dose_multiplier": 1.8,
+        "threshold_interaction_dose": { "Alcohol": "20 g", "MDMA": "80 mg" },
+        "notes": "Alcohol exacerbates MDMA-induced dehydration and hyperthermia.",
+        "contraindications": ["cardiovascular disease", "heat stroke history", "renal impairment"]
+      },
+      "Nitrous_Oxide": {
+        "risk_level": 5,
+        "interaction_type": "Caution",
+        "mechanism": "Additive CNS depression, increased risk of falls and hypoxia.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 6, "evidence": "Moderate" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 4, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.5,
+        "threshold_interaction_dose": { "Alcohol": "20 g", "Nitrous_Oxide": "2 cartridges" },
+        "notes": "Nitrous displaces oxygen; alcohol impairs compensatory responses.",
+        "contraindications": ["respiratory disease", "anemia"]
+      },
+      "Opioids_(Heroin/Fentanyl)": {
+        "risk_level": 10,
+        "interaction_type": "Dangerous",
+        "mechanism": "Synergistic respiratory depression, leading to fatal overdose.",
+        "evidence": "High",
+        "citation": "CDC SUDORS 2024; NIDA",
+        "source_url": "https://www.cdc.gov/nchs/nvss/vsrr/drug-overdose-data.htm",
+        "body_systems": {
+          "respiratory": { "score": 10, "evidence": "High" },
+          "cardiac": { "score": 4, "evidence": "Moderate" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 8, "evidence": "High" },
+          "thermoregulatory": { "score": 2, "evidence": "Low" },
+          "renal": { "score": 2, "evidence": "Low" }
+        },
+        "dose_multiplier": 4.0,
+        "threshold_interaction_dose": { "Alcohol": "10 g", "Opioids": "10 mg morphine equivalent" },
+        "notes": "Even small amounts of alcohol can precipitate fatal respiratory arrest with opioids.",
+        "contraindications": ["respiratory disease", "sleep apnea", "hepatic impairment"]
+      },
+      "Psilocybin": {
+        "risk_level": 2,
+        "interaction_type": "Low Risk",
+        "mechanism": "Minimal physical interaction; may alter subjective effects.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 1, "evidence": "Low" },
+          "cardiac": { "score": 1, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 2, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 0, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.0,
+        "threshold_interaction_dose": { "Alcohol": "N/A", "Psilocybin": "N/A" },
+        "notes": "No known physical interaction; psychological effects may be intensified.",
+        "contraindications": []
+      },
+      "Suboxone": {
+        "risk_level": 8,
+        "interaction_type": "Dangerous",
+        "mechanism": "Additive respiratory depression despite buprenorphine's ceiling effect.",
+        "evidence": "High",
+        "citation": "FDA label; CDC",
+        "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/",
+        "body_systems": {
+          "respiratory": { "score": 8, "evidence": "High" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 6, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 2.5,
+        "threshold_interaction_dose": { "Alcohol": "20 g", "Suboxone": "4 mg" },
+        "notes": "Alcohol can overcome buprenorphine's ceiling; benzodiazepines often co-involved.",
+        "contraindications": ["respiratory disease", "hepatic impairment", "concurrent benzodiazepine use"]
+      },
+      "Tramadol": {
+        "risk_level": 6,
+        "interaction_type": "Caution",
+        "mechanism": "Additive CNS depression and lowered seizure threshold.",
+        "evidence": "Moderate",
+        "citation": "TripSit; Drugs.com",
+        "source_url": "https://www.drugs.com/drug-interactions/",
+        "body_systems": {
+          "respiratory": { "score": 5, "evidence": "Moderate" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 6, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 2, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.8,
+        "threshold_interaction_dose": { "Alcohol": "20 g", "Tramadol": "100 mg" },
+        "notes": "Tramadol's SNRI effects may increase seizure risk; alcohol lowers threshold further.",
+        "contraindications": ["seizure disorder", "SSRI/SNRI use", "hepatic impairment"]
+      }
+    },
+    "Benzodiazepines": {
+      "Cannabis": {
+        "risk_level": 3,
+        "interaction_type": "Low Risk",
+        "mechanism": "Mild additive sedation, not clinically dangerous.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Low" },
+          "cardiac": { "score": 1, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 3, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 0, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.2,
+        "threshold_interaction_dose": { "Benzodiazepines": "1 mg", "Cannabis": "10 mg THC" },
+        "notes": "THC may increase anxiety in some, but no dangerous synergy.",
+        "contraindications": []
+      },
+      "Cocaine": {
+        "risk_level": 5,
+        "interaction_type": "Caution",
+        "mechanism": "Cocaine's stimulant effects may mask benzodiazepine sedation, increasing cardiovascular strain.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Low" },
+          "cardiac": { "score": 6, "evidence": "Moderate" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 4, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 3, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.5,
+        "threshold_interaction_dose": { "Benzodiazepines": "1 mg", "Cocaine": "50 mg" },
+        "notes": "Benzodiazepines are sometimes used to comedown from cocaine, but timing matters.",
+        "contraindications": ["cardiovascular disease", "hypertension"]
+      },
+      "Ketamine": {
+        "risk_level": 8,
+        "interaction_type": "Dangerous",
+        "mechanism": "Severe CNS depression, respiratory failure.",
+        "evidence": "High",
+        "citation": "TripSit; Morgan et al. 2012",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 9, "evidence": "High" },
+          "cardiac": { "score": 3, "evidence": "Moderate" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 8, "evidence": "High" },
+          "thermoregulatory": { "score": 2, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 3.0,
+        "threshold_interaction_dose": { "Benzodiazepines": "1 mg", "Ketamine": "50 mg" },
+        "notes": "Both potentiate GABA and NMDA antagonism; profound sedation.",
+        "contraindications": ["respiratory disease", "sleep apnea"]
+      },
+      "Kratom": {
+        "risk_level": 5,
+        "interaction_type": "Caution",
+        "mechanism": "Additive sedative effects.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 4, "evidence": "Moderate" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 4, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.5,
+        "threshold_interaction_dose": { "Benzodiazepines": "1 mg", "Kratom": "5 g" },
+        "notes": "Kratom's mu-opioid activity at high doses adds sedation.",
+        "contraindications": ["respiratory disease", "hepatic impairment"]
+      },
+      "LSD": {
+        "risk_level": 2,
+        "interaction_type": "Low Risk",
+        "mechanism": "Benzodiazepines are used to abort bad trips; no adverse synergy.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 1, "evidence": "Low" },
+          "cardiac": { "score": 1, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 2, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 0, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.0,
+        "threshold_interaction_dose": { "Benzodiazepines": "N/A", "LSD": "N/A" },
+        "notes": "Benzodiazepines can reduce anxiety without dangerous interaction.",
+        "contraindications": []
+      },
+      "MDMA": {
+        "risk_level": 4,
+        "interaction_type": "Caution",
+        "mechanism": "Benzodiazepines may blunt MDMA's effects and increase sedation.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Low" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 3, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 2, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.2,
+        "threshold_interaction_dose": { "Benzodiazepines": "1 mg", "MDMA": "80 mg" },
+        "notes": "Sometimes used to manage MDMA anxiety, but may dull experience.",
+        "contraindications": []
+      },
+      "Nitrous_Oxide": {
+        "risk_level": 5,
+        "interaction_type": "Caution",
+        "mechanism": "Additive CNS depression, hypoxia risk.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 6, "evidence": "Moderate" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 4, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.5,
+        "threshold_interaction_dose": { "Benzodiazepines": "1 mg", "Nitrous_Oxide": "2 cartridges" },
+        "notes": "Nitrous enhances sedation; both impair airway reflexes.",
+        "contraindications": ["respiratory disease", "anemia"]
+      },
+      "Opioids_(Heroin/Fentanyl)": {
+        "risk_level": 10,
+        "interaction_type": "Dangerous",
+        "mechanism": "Synergistic respiratory depression, leading to fatal overdose.",
+        "evidence": "High",
+        "citation": "CDC SUDORS; FDA",
+        "source_url": "https://www.cdc.gov/nchs/nvss/vsrr/drug-overdose-data.htm",
+        "body_systems": {
+          "respiratory": { "score": 10, "evidence": "High" },
+          "cardiac": { "score": 3, "evidence": "Moderate" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 8, "evidence": "High" },
+          "thermoregulatory": { "score": 2, "evidence": "Low" },
+          "renal": { "score": 2, "evidence": "Low" }
+        },
+        "dose_multiplier": 4.0,
+        "threshold_interaction_dose": { "Benzodiazepines": "0.5 mg", "Opioids": "5 mg morphine equivalent" },
+        "notes": "Most lethal prescription drug interaction; responsible for thousands of deaths annually.",
+        "contraindications": ["respiratory disease", "sleep apnea", "elderly"]
+      },
+      "Psilocybin": {
+        "risk_level": 2,
+        "interaction_type": "Low Risk",
+        "mechanism": "No significant physical interaction.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 1, "evidence": "Low" },
+          "cardiac": { "score": 1, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 2, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 0, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.0,
+        "threshold_interaction_dose": { "Benzodiazepines": "N/A", "Psilocybin": "N/A" },
+        "notes": "Benzodiazepines can attenuate psychedelic effects if needed.",
+        "contraindications": []
+      },
+      "Suboxone": {
+        "risk_level": 9,
+        "interaction_type": "Dangerous",
+        "mechanism": "Severe respiratory depression; benzodiazepines are not blocked by naloxone.",
+        "evidence": "High",
+        "citation": "FDA boxed warning; CDC",
+        "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/",
+        "body_systems": {
+          "respiratory": { "score": 9, "evidence": "High" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 7, "evidence": "High" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 3.5,
+        "threshold_interaction_dose": { "Benzodiazepines": "1 mg", "Suboxone": "4 mg" },
+        "notes": "FDA black box warning; even therapeutic doses can be lethal together.",
+        "contraindications": ["concurrent benzodiazepine use", "respiratory disease", "hepatic impairment"]
+      },
+      "Tramadol": {
+        "risk_level": 7,
+        "interaction_type": "Dangerous",
+        "mechanism": "Additive CNS depression and seizure risk (though benzodiazepines are anticonvulsant, sedation dominates).",
+        "evidence": "Moderate",
+        "citation": "TripSit; Drugs.com",
+        "source_url": "https://www.drugs.com/drug-interactions/",
+        "body_systems": {
+          "respiratory": { "score": 6, "evidence": "Moderate" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 6, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 2, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 2.0,
+        "threshold_interaction_dose": { "Benzodiazepines": "1 mg", "Tramadol": "100 mg" },
+        "notes": "Tramadol lowers seizure threshold; benzodiazepines may offer some protection but sedation risk prevails.",
+        "contraindications": ["seizure disorder", "SSRI/SNRI use", "hepatic impairment"]
+      }
+    },
+    "Cannabis": {
+      "Cocaine": {
+        "risk_level": 4,
+        "interaction_type": "Caution",
+        "mechanism": "Increased heart rate and anxiety, possible panic attacks.",
+        "evidence": "Moderate",
+        "citation": "TripSit; NIDA",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Low" },
+          "cardiac": { "score": 5, "evidence": "Moderate" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 4, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 3, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.3,
+        "threshold_interaction_dose": { "Cannabis": "10 mg THC", "Cocaine": "50 mg" },
+        "notes": "Both increase sympathetic tone; may trigger arrhythmias in susceptible.",
+        "contraindications": ["cardiovascular disease", "anxiety disorders"]
+      },
+      "Ketamine": {
+        "risk_level": 4,
+        "interaction_type": "Caution",
+        "mechanism": "Enhanced dissociation and confusion.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Low" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 5, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 2, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.4,
+        "threshold_interaction_dose": { "Cannabis": "10 mg THC", "Ketamine": "50 mg" },
+        "notes": "THC may intensify ketamine's dissociative effects, increasing risk of distress.",
+        "contraindications": ["psychiatric instability"]
+      },
+      "Kratom": {
+        "risk_level": 3,
+        "interaction_type": "Low Risk",
+        "mechanism": "Mild additive sedation, no documented dangerous synergy.",
+        "evidence": "Low",
+        "citation": "TripSit 2024",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Low" },
+          "cardiac": { "score": 1, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 3, "evidence": "Low" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 0, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.2,
+        "threshold_interaction_dose": { "Cannabis": "10 mg THC", "Kratom": "3 g" },
+        "notes": "Minimal data; theoretical additive sedation at high doses.",
+        "contraindications": []
+      },
+      "LSD": {
+        "risk_level": 3,
+        "interaction_type": "Low Risk",
+        "mechanism": "Cannabis can intensify psychedelic effects, increasing anxiety but not physical danger.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 1, "evidence": "Low" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 4, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 0, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.2,
+        "threshold_interaction_dose": { "Cannabis": "5 mg THC", "LSD": "50 µg" },
+        "notes": "Commonly combined; can lead to overwhelming experiences but not organ toxicity.",
+        "contraindications": ["psychiatric instability"]
+      },
+      "MDMA": {
+        "risk_level": 4,
+        "interaction_type": "Caution",
+        "mechanism": "Additive cardiovascular strain and anxiety.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Low" },
+          "cardiac": { "score": 5, "evidence": "Moderate" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 4, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 4, "evidence": "Moderate" },
+          "renal": { "score": 2, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.3,
+        "threshold_interaction_dose": { "Cannabis": "10 mg THC", "MDMA": "80 mg" },
+        "notes": "THC may increase MDMA's heart rate and anxiety; some users report synergy.",
+        "contraindications": ["cardiovascular disease", "anxiety disorders"]
+      },
+      "Nitrous_Oxide": {
+        "risk_level": 3,
+        "interaction_type": "Low Risk",
+        "mechanism": "Mild dissociation enhancement, not dangerous.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Low" },
+          "cardiac": { "score": 1, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 3, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 0, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.1,
+        "threshold_interaction_dose": { "Cannabis": "10 mg THC", "Nitrous_Oxide": "2 cartridges" },
+        "notes": "Commonly used together; mild potentiation of dissociation.",
+        "contraindications": []
+      },
+      "Opioids_(Heroin/Fentanyl)": {
+        "risk_level": 4,
+        "interaction_type": "Caution",
+        "mechanism": "Additive sedation, but respiratory depression is not significantly potentiated.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 3, "evidence": "Moderate" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 4, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.2,
+        "threshold_interaction_dose": { "Cannabis": "10 mg THC", "Opioids": "10 mg morphine equivalent" },
+        "notes": "Cannabis does not significantly increase opioid respiratory depression, but sedation adds risk.",
+        "contraindications": ["respiratory disease"]
+      },
+      "Psilocybin": {
+        "risk_level": 3,
+        "interaction_type": "Low Risk",
+        "mechanism": "Similar to LSD; can intensify effects, but not physically dangerous.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 1, "evidence": "Low" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 4, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 0, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.2,
+        "threshold_interaction_dose": { "Cannabis": "5 mg THC", "Psilocybin": "10 mg" },
+        "notes": "Often combined; may lead to more intense mystical experiences or anxiety.",
+        "contraindications": ["psychiatric instability"]
+      },
+      "Suboxone": {
+        "risk_level": 3,
+        "interaction_type": "Low Risk",
+        "mechanism": "Mild additive sedation, no documented dangerous synergy.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Low" },
+          "cardiac": { "score": 1, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 2, "evidence": "Low" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 0, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.1,
+        "threshold_interaction_dose": { "Cannabis": "10 mg THC", "Suboxone": "4 mg" },
+        "notes": "No known interaction; both are used in pain management.",
+        "contraindications": []
+      }
+    },
+    "Cocaine": {
+      "Ketamine": {
+        "risk_level": 5,
+        "interaction_type": "Caution",
+        "mechanism": "Unpredictable cardiovascular effects; stimulant plus dissociative may cause arrhythmias.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Low" },
+          "cardiac": { "score": 7, "evidence": "Moderate" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 5, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 3, "evidence": "Low" },
+          "renal": { "score": 2, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.6,
+        "threshold_interaction_dose": { "Cocaine": "50 mg", "Ketamine": "50 mg" },
+        "notes": "Cocaine increases heart rate and blood pressure; ketamine can cause hypertension and tachycardia.",
+        "contraindications": ["cardiovascular disease", "hypertension"]
+      },
+      "Kratom": {
+        "risk_level": 4,
+        "interaction_type": "Caution",
+        "mechanism": "Kratom's mild stimulant effects at low doses may add to cocaine's cardiovascular strain; limited evidence.",
+        "evidence": "Low",
+        "citation": "TripSit 2024",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 1, "evidence": "Low" },
+          "cardiac": { "score": 5, "evidence": "Low" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 3, "evidence": "Low" },
+          "thermoregulatory": { "score": 2, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.3,
+        "threshold_interaction_dose": { "Cocaine": "50 mg", "Kratom": "3 g" },
+        "notes": "Theoretical; low-dose kratom is stimulant, high-dose sedative. Unpredictable.",
+        "contraindications": ["cardiovascular disease"]
+      },
+      "LSD": {
+        "risk_level": 3,
+        "interaction_type": "Low Risk",
+        "mechanism": "Stimulant plus psychedelic may increase anxiety, but not physically dangerous.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 1, "evidence": "Low" },
+          "cardiac": { "score": 4, "evidence": "Moderate" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 4, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 2, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.2,
+        "threshold_interaction_dose": { "Cocaine": "50 mg", "LSD": "50 µg" },
+        "notes": "Cocaine may intensify the come-up anxiety of LSD; risk of panic.",
+        "contraindications": ["anxiety disorders", "cardiovascular disease"]
+      },
+      "MDMA": {
+        "risk_level": 6,
+        "interaction_type": "Caution",
+        "mechanism": "Severe cardiovascular strain, hyperthermia, and risk of serotonin syndrome.",
+        "evidence": "High",
+        "citation": "TripSit; NIDA",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Low" },
+          "cardiac": { "score": 8, "evidence": "High" },
+          "hepatic": { "score": 3, "evidence": "Low" },
+          "neurological": { "score": 6, "evidence": "High" },
+          "thermoregulatory": { "score": 7, "evidence": "High" },
+          "renal": { "score": 4, "evidence": "Moderate" }
+        },
+        "dose_multiplier": 2.0,
+        "threshold_interaction_dose": { "Cocaine": "50 mg", "MDMA": "80 mg" },
+        "notes": "Both increase heart rate, blood pressure, and body temperature; significant risk of cardiovascular events.",
+        "contraindications": ["cardiovascular disease", "hyperthermia history", "renal impairment"]
+      },
+      "Nitrous_Oxide": {
+        "risk_level": 4,
+        "interaction_type": "Caution",
+        "mechanism": "Increased oxygen demand from cocaine combined with hypoxia risk from nitrous.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 5, "evidence": "Moderate" },
+          "cardiac": { "score": 5, "evidence": "Moderate" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 4, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 2, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.4,
+        "threshold_interaction_dose": { "Cocaine": "50 mg", "Nitrous_Oxide": "2 cartridges" },
+        "notes": "Cocaine increases myocardial oxygen demand; nitrous-induced hypoxia can precipitate ischemia.",
+        "contraindications": ["cardiovascular disease", "anemia"]
+      },
+      "Opioids_(Heroin/Fentanyl)": {
+        "risk_level": 7,
+        "interaction_type": "Dangerous",
+        "mechanism": "Speedball combination: cardiorespiratory collapse due to opposing effects.",
+        "evidence": "High",
+        "citation": "CDC SUDORS; NIDA",
+        "source_url": "https://www.cdc.gov/nchs/nvss/vsrr/drug-overdose-data.htm",
+        "body_systems": {
+          "respiratory": { "score": 8, "evidence": "High" },
+          "cardiac": { "score": 7, "evidence": "High" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 6, "evidence": "High" },
+          "thermoregulatory": { "score": 3, "evidence": "Low" },
+          "renal": { "score": 2, "evidence": "Low" }
+        },
+        "dose_multiplier": 2.5,
+        "threshold_interaction_dose": { "Cocaine": "50 mg", "Opioids": "10 mg morphine equivalent" },
+        "notes": "Classic speedball; cocaine's stimulant effects may mask opioid sedation, leading to overdose.",
+        "contraindications": ["cardiovascular disease", "respiratory disease"]
+      },
+      "Psilocybin": {
+        "risk_level": 3,
+        "interaction_type": "Low Risk",
+        "mechanism": "Minimal physical interaction.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 1, "evidence": "Low" },
+          "cardiac": { "score": 3, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 3, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 2, "evidence": "Low" },
+          "renal": { "score": 0, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.1,
+        "threshold_interaction_dose": { "Cocaine": "50 mg", "Psilocybin": "10 mg" },
+        "notes": "Cocaine may increase anxiety during psychedelic experience, but no physical synergy.",
+        "contraindications": ["anxiety disorders"]
+      },
+      "Suboxone": {
+        "risk_level": 4,
+        "interaction_type": "Caution",
+        "mechanism": "Cocaine's cardiovascular effects unchanged; suboxone may add sedation, but no major synergy.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Low" },
+          "cardiac": { "score": 4, "evidence": "Moderate" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 3, "evidence": "Low" },
+          "thermoregulatory": { "score": 2, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.2,
+        "threshold_interaction_dose": { "Cocaine": "50 mg", "Suboxone": "4 mg" },
+        "notes": "Suboxone does not block cocaine's effects; may be used concurrently in some users.",
+        "contraindications": []
+      },
+      "Tramadol": {
+        "risk_level": 6,
+        "interaction_type": "Caution",
+        "mechanism": "Both lower seizure threshold; risk of serotonin syndrome and cardiovascular stress.",
+        "evidence": "Moderate",
+        "citation": "TripSit; Drugs.com",
+        "source_url": "https://www.drugs.com/drug-interactions/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Low" },
+          "cardiac": { "score": 6, "evidence": "Moderate" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 6, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 3, "evidence": "Low" },
+          "renal": { "score": 2, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.7,
+        "threshold_interaction_dose": { "Cocaine": "50 mg", "Tramadol": "100 mg" },
+        "notes": "Cocaine increases sympathetic tone; tramadol's SNRI effects may contribute to serotonin syndrome.",
+        "contraindications": ["seizure disorder", "SSRI/SNRI use", "cardiovascular disease"]
+      }
+    },
+    "Ketamine": {
+      "Kratom": {
+        "risk_level": 4,
+        "interaction_type": "Caution",
+        "mechanism": "Possible additive sedation and dissociation; limited data.",
+        "evidence": "Low",
+        "citation": "TripSit 2024",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 3, "evidence": "Low" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 4, "evidence": "Low" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 2, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.3,
+        "threshold_interaction_dose": { "Ketamine": "50 mg", "Kratom": "3 g" },
+        "notes": "Both affect NMDA and opioid systems; theoretical synergy in sedation.",
+        "contraindications": ["respiratory disease"]
+      },
+      "LSD": {
+        "risk_level": 4,
+        "interaction_type": "Caution",
+        "mechanism": "Dissociative plus psychedelic can cause overwhelming confusion and panic.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 1, "evidence": "Low" },
+          "cardiac": { "score": 3, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 6, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 2, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.4,
+        "threshold_interaction_dose": { "Ketamine": "50 mg", "LSD": "50 µg" },
+        "notes": "K-hole combined with LSD can lead to profound ego dissolution and distress.",
+        "contraindications": ["psychiatric instability"]
+      },
+      "MDMA": {
+        "risk_level": 5,
+        "interaction_type": "Caution",
+        "mechanism": "Combined dissociative and empathogen effects may lead to unpredictable behavior and cardiovascular strain.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Low" },
+          "cardiac": { "score": 5, "evidence": "Moderate" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 5, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 4, "evidence": "Moderate" },
+          "renal": { "score": 2, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.5,
+        "threshold_interaction_dose": { "Ketamine": "50 mg", "MDMA": "80 mg" },
+        "notes": "Sometimes called 'kitty flipping'; can be pleasant but increases confusion and heart rate.",
+        "contraindications": ["cardiovascular disease"]
+      },
+      "Nitrous_Oxide": {
+        "risk_level": 5,
+        "interaction_type": "Caution",
+        "mechanism": "Additive dissociative effects and hypoxia risk.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 5, "evidence": "Moderate" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 5, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.5,
+        "threshold_interaction_dose": { "Ketamine": "50 mg", "Nitrous_Oxide": "2 cartridges" },
+        "notes": "Commonly combined in club settings; intensifies dissociation and risk of oxygen deprivation.",
+        "contraindications": ["respiratory disease", "anemia"]
+      },
+      "Opioids_(Heroin/Fentanyl)": {
+        "risk_level": 9,
+        "interaction_type": "Dangerous",
+        "mechanism": "Profound respiratory depression; both are CNS depressants.",
+        "evidence": "High",
+        "citation": "TripSit; Morgan et al. 2012",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 9, "evidence": "High" },
+          "cardiac": { "score": 3, "evidence": "Moderate" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 8, "evidence": "High" },
+          "thermoregulatory": { "score": 2, "evidence": "Low" },
+          "renal": { "score": 2, "evidence": "Low" }
+        },
+        "dose_multiplier": 3.5,
+        "threshold_interaction_dose": { "Ketamine": "50 mg", "Opioids": "10 mg morphine equivalent" },
+        "notes": "Ketamine's dissociative effects can mask opioid sedation, leading to overdose.",
+        "contraindications": ["respiratory disease", "sleep apnea"]
+      },
+      "Psilocybin": {
+        "risk_level": 4,
+        "interaction_type": "Caution",
+        "mechanism": "Similar to LSD; may cause confusion and anxiety.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 1, "evidence": "Low" },
+          "cardiac": { "score": 3, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 5, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 2, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.3,
+        "threshold_interaction_dose": { "Ketamine": "50 mg", "Psilocybin": "10 mg" },
+        "notes": "Combination may produce intense hallucinations and disorientation.",
+        "contraindications": ["psychiatric instability"]
+      },
+      "Suboxone": {
+        "risk_level": 8,
+        "interaction_type": "Dangerous",
+        "mechanism": "Additive respiratory depression despite buprenorphine's partial agonism.",
+        "evidence": "Moderate",
+        "citation": "TripSit; FDA",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 8, "evidence": "High" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 6, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 2.5,
+        "threshold_interaction_dose": { "Ketamine": "50 mg", "Suboxone": "4 mg" },
+        "notes": "Buprenorphine's ceiling does not protect against ketamine's respiratory effects.",
+        "contraindications": ["respiratory disease"]
+      },
+      "Tramadol": {
+        "risk_level": 6,
+        "interaction_type": "Caution",
+        "mechanism": "CNS depression and possible seizure risk.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 5, "evidence": "Moderate" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 6, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 2, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.6,
+        "threshold_interaction_dose": { "Ketamine": "50 mg", "Tramadol": "100 mg" },
+        "notes": "Tramadol's seizure risk may be compounded by ketamine's dissociative effects.",
+        "contraindications": ["seizure disorder", "SSRI/SNRI use"]
+      }
+    },
+    "Kratom": {
+      "LSD": {
+        "risk_level": 2,
+        "interaction_type": "Low Risk",
+        "mechanism": "No known interactions; theoretical low risk.",
+        "evidence": "Low",
+        "citation": "TripSit 2024",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 1, "evidence": "Low" },
+          "cardiac": { "score": 1, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 2, "evidence": "Low" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 0, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.0,
+        "threshold_interaction_dose": { "Kratom": "N/A", "LSD": "N/A" },
+        "notes": "No data; unlikely to be dangerous.",
+        "contraindications": []
+      },
+      "MDMA": {
+        "risk_level": 4,
+        "interaction_type": "Caution",
+        "mechanism": "Potential for increased serotonin effects, but no documented cases.",
+        "evidence": "Low",
+        "citation": "TripSit 2024",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 1, "evidence": "Low" },
+          "cardiac": { "score": 3, "evidence": "Low" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 4, "evidence": "Low" },
+          "thermoregulatory": { "score": 3, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.2,
+        "threshold_interaction_dose": { "Kratom": "3 g", "MDMA": "80 mg" },
+        "notes": "Kratom has weak serotonergic activity; theoretical risk of serotonin syndrome with MDMA.",
+        "contraindications": ["SSRI use", "serotonin syndrome history"]
+      },
+      "Nitrous_Oxide": {
+        "risk_level": 3,
+        "interaction_type": "Low Risk",
+        "mechanism": "Theoretical mild CNS depression; no documented interactions.",
+        "evidence": "Low",
+        "citation": "TripSit 2024",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Low" },
+          "cardiac": { "score": 1, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 2, "evidence": "Low" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.1,
+        "threshold_interaction_dose": { "Kratom": "3 g", "Nitrous_Oxide": "2 cartridges" },
+        "notes": "Both may cause mild sedation; unlikely to be dangerous.",
+        "contraindications": []
+      },
+      "Opioids_(Heroin/Fentanyl)": {
+        "risk_level": 7,
+        "interaction_type": "Dangerous",
+        "mechanism": "Additive mu-opioid agonism increases respiratory depression risk.",
+        "evidence": "Moderate",
+        "citation": "CDC SUDORS (90% of kratom deaths involve fentanyl); TripSit",
+        "source_url": "https://www.cdc.gov/mmwr/volumes/68/wr/mm6814a2.htm",
+        "body_systems": {
+          "respiratory": { "score": 7, "evidence": "Moderate" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 5, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 2.0,
+        "threshold_interaction_dose": { "Kratom": "3 g", "Opioids": "5 mg morphine equivalent" },
+        "notes": "Kratom's mitragynine is a partial mu agonist; adds to full agonist effects.",
+        "contraindications": ["respiratory disease", "opioid dependence"]
+      },
+      "Psilocybin": {
+        "risk_level": 2,
+        "interaction_type": "Low Risk",
+        "mechanism": "No data; unlikely to be dangerous.",
+        "evidence": "Low",
+        "citation": "TripSit 2024",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 1, "evidence": "Low" },
+          "cardiac": { "score": 1, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 2, "evidence": "Low" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 0, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.0,
+        "threshold_interaction_dose": { "Kratom": "N/A", "Psilocybin": "N/A" },
+        "notes": "No known interaction.",
+        "contraindications": []
+      },
+      "Suboxone": {
+        "risk_level": 5,
+        "interaction_type": "Caution",
+        "mechanism": "Possible precipitated withdrawal if kratom-dependent; buprenorphine may block kratom's opioid effects, but evidence limited.",
+        "evidence": "Low",
+        "citation": "TripSit 2024",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 3, "evidence": "Low" },
+          "cardiac": { "score": 1, "evidence": "Low" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 3, "evidence": "Low" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.3,
+        "threshold_interaction_dose": { "Kratom": "3 g", "Suboxone": "2 mg" },
+        "notes": "Buprenorphine's high affinity may precipitate withdrawal in kratom-dependent users.",
+        "contraindications": ["current kratom dependence"]
+      },
+      "Tramadol": {
+        "risk_level": 5,
+        "interaction_type": "Caution",
+        "mechanism": "Theoretical additive opioid effects and seizure risk; limited data.",
+        "evidence": "Low",
+        "citation": "TripSit 2024",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 3, "evidence": "Low" },
+          "cardiac": { "score": 1, "evidence": "Low" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 4, "evidence": "Low" },
+          "thermoregulatory": { "score": 2, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.3,
+        "threshold_interaction_dose": { "Kratom": "3 g", "Tramadol": "100 mg" },
+        "notes": "Both have serotonergic and opioid activity; potential for serotonin syndrome or seizures.",
+        "contraindications": ["seizure disorder", "SSRI/SNRI use"]
+      }
+    },
+    "LSD": {
+      "MDMA": {
+        "risk_level": 4,
+        "interaction_type": "Caution",
+        "mechanism": "Candyflipping: intense psychological experience, but not physically dangerous.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 1, "evidence": "Low" },
+          "cardiac": { "score": 4, "evidence": "Moderate" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 5, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 3, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.3,
+        "threshold_interaction_dose": { "LSD": "50 µg", "MDMA": "80 mg" },
+        "notes": "Combination can be synergistic; risk of overwhelming experience but low physical danger.",
+        "contraindications": ["psychiatric instability"]
+      },
+      "Nitrous_Oxide": {
+        "risk_level": 3,
+        "interaction_type": "Low Risk",
+        "mechanism": "Mild dissociation enhancement, no significant danger.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Low" },
+          "cardiac": { "score": 1, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 3, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 0, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.1,
+        "threshold_interaction_dose": { "LSD": "50 µg", "Nitrous_Oxide": "2 cartridges" },
+        "notes": "Commonly used together; may enhance visual effects temporarily.",
+        "contraindications": []
+      },
+      "Opioids_(Heroin/Fentanyl)": {
+        "risk_level": 2,
+        "interaction_type": "Low Risk",
+        "mechanism": "No significant interaction; opioids may sedate, but no synergy.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 1, "evidence": "Low" },
+          "cardiac": { "score": 1, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 2, "evidence": "Low" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 0, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.0,
+        "threshold_interaction_dose": { "LSD": "N/A", "Opioids": "N/A" },
+        "notes": "Opioids may dull the LSD experience, but no physical interaction.",
+        "contraindications": []
+      },
+      "Psilocybin": {
+        "risk_level": 4,
+        "interaction_type": "Caution",
+        "mechanism": "Psychedelic synergy may cause overwhelming psychological distress.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 1, "evidence": "Low" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 5, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 0, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.2,
+        "threshold_interaction_dose": { "LSD": "50 µg", "Psilocybin": "10 mg" },
+        "notes": "Cross-tolerance exists; combining may lead to very intense experience.",
+        "contraindications": ["psychiatric instability"]
+      }
+    },
+    "MDMA": {
+      "Nitrous_Oxide": {
+        "risk_level": 4,
+        "interaction_type": "Caution",
+        "mechanism": "Increased dissociation and impaired judgment, possible hyperthermia.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Low" },
+          "cardiac": { "score": 3, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 4, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 3, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.2,
+        "threshold_interaction_dose": { "MDMA": "80 mg", "Nitrous_Oxide": "2 cartridges" },
+        "notes": "Nitrous may enhance MDMA's euphoria but also risk of dehydration and falls.",
+        "contraindications": []
+      },
+      "Opioids_(Heroin/Fentanyl)": {
+        "risk_level": 5,
+        "interaction_type": "Caution",
+        "mechanism": "Opioids depress respiration while MDMA stimulates; unpredictable cardiorespiratory effects.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 4, "evidence": "Moderate" },
+          "cardiac": { "score": 5, "evidence": "Moderate" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 4, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 3, "evidence": "Low" },
+          "renal": { "score": 2, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.4,
+        "threshold_interaction_dose": { "MDMA": "80 mg", "Opioids": "10 mg morphine equivalent" },
+        "notes": "Combination may lead to mixed overdose; rare but documented.",
+        "contraindications": ["respiratory disease", "cardiovascular disease"]
+      },
+      "Psilocybin": {
+        "risk_level": 4,
+        "interaction_type": "Caution",
+        "mechanism": "Combined empathogen and psychedelic may intensify emotional experience.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 1, "evidence": "Low" },
+          "cardiac": { "score": 3, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 4, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 2, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.2,
+        "threshold_interaction_dose": { "MDMA": "80 mg", "Psilocybin": "10 mg" },
+        "notes": "Often called 'hippy flipping'; can be profound but also overwhelming.",
+        "contraindications": ["psychiatric instability"]
+      },
+      "Tramadol": {
+        "risk_level": 8,
+        "interaction_type": "Dangerous",
+        "mechanism": "Serotonin syndrome risk: MDMA releases serotonin, tramadol inhibits reuptake.",
+        "evidence": "High",
+        "citation": "PubMed case reports; FDA Adverse Events",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=MDMA+tramadol+serotonin+syndrome",
+        "body_systems": {
+          "respiratory": { "score": 3, "evidence": "Low" },
+          "cardiac": { "score": 6, "evidence": "Moderate" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 8, "evidence": "High" },
+          "thermoregulatory": { "score": 7, "evidence": "High" },
+          "renal": { "score": 4, "evidence": "Moderate" }
+        },
+        "dose_multiplier": 2.5,
+        "threshold_interaction_dose": { "MDMA": "80 mg", "Tramadol": "100 mg" },
+        "notes": "Documented cases of serotonin syndrome; can be life-threatening.",
+        "contraindications": ["SSRI/SNRI use", "seizure disorder", "serotonin syndrome history"]
+      }
+    },
+    "Nitrous_Oxide": {
+      "Opioids_(Heroin/Fentanyl)": {
+        "risk_level": 6,
+        "interaction_type": "Caution",
+        "mechanism": "Additive hypoxia risk; both can cause oxygen deprivation.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 7, "evidence": "Moderate" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 4, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.5,
+        "threshold_interaction_dose": { "Nitrous_Oxide": "2 cartridges", "Opioids": "10 mg morphine equivalent" },
+        "notes": "Nitrous displaces oxygen; opioids depress respiratory drive; combined risk of hypoxia.",
+        "contraindications": ["respiratory disease", "anemia"]
+      },
+      "Psilocybin": {
+        "risk_level": 3,
+        "interaction_type": "Low Risk",
+        "mechanism": "Minimal physical interaction.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Low" },
+          "cardiac": { "score": 1, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 3, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 0, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.1,
+        "threshold_interaction_dose": { "Nitrous_Oxide": "2 cartridges", "Psilocybin": "10 mg" },
+        "notes": "Nitrous may briefly enhance psychedelic visuals, no physical danger.",
+        "contraindications": []
+      },
+      "Suboxone": {
+        "risk_level": 5,
+        "interaction_type": "Caution",
+        "mechanism": "CNS depression and hypoxia risk.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 6, "evidence": "Moderate" },
+          "cardiac": { "score": 1, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 3, "evidence": "Low" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 0, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.3,
+        "threshold_interaction_dose": { "Nitrous_Oxide": "2 cartridges", "Suboxone": "4 mg" },
+        "notes": "Buprenorphine's ceiling does not protect against hypoxia from nitrous.",
+        "contraindications": ["respiratory disease"]
+      }
+    },
+    "Opioids_(Heroin/Fentanyl)": {
+      "Psilocybin": {
+        "risk_level": 2,
+        "interaction_type": "Low Risk",
+        "mechanism": "No significant physical interaction.",
+        "evidence": "Moderate",
+        "citation": "TripSit",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 1, "evidence": "Low" },
+          "cardiac": { "score": 1, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 2, "evidence": "Low" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 0, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.0,
+        "threshold_interaction_dose": { "Opioids": "N/A", "Psilocybin": "N/A" },
+        "notes": "No known interaction.",
+        "contraindications": []
+      },
+      "Suboxone": {
+        "risk_level": 6,
+        "interaction_type": "Caution",
+        "mechanism": "Precipitated withdrawal if taken together; not lethal but can be severe.",
+        "evidence": "High",
+        "citation": "FDA label; ASAM",
+        "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/",
+        "body_systems": {
+          "respiratory": { "score": 3, "evidence": "Low" },
+          "cardiac": { "score": 1, "evidence": "Low" },
+          "hepatic": { "score": 1, "evidence": "Low" },
+          "neurological": { "score": 4, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.2,
+        "threshold_interaction_dose": { "Opioids": "10 mg morphine equivalent", "Suboxone": "2 mg" },
+        "notes": "Buprenorphine's high affinity displaces full agonists, causing acute withdrawal.",
+        "contraindications": ["current opioid dependence without withdrawal"]
+      },
+      "Tramadol": {
+        "risk_level": 7,
+        "interaction_type": "Dangerous",
+        "mechanism": "Additive respiratory depression and increased seizure risk.",
+        "evidence": "Moderate",
+        "citation": "TripSit; Drugs.com",
+        "source_url": "https://www.drugs.com/drug-interactions/",
+        "body_systems": {
+          "respiratory": { "score": 7, "evidence": "Moderate" },
+          "cardiac": { "score": 2, "evidence": "Low" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 6, "evidence": "Moderate" },
+          "thermoregulatory": { "score": 2, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 2.0,
+        "threshold_interaction_dose": { "Opioids": "10 mg morphine equivalent", "Tramadol": "100 mg" },
+        "notes": "Both are opioids; tramadol adds serotonergic and seizure risks.",
+        "contraindications": ["seizure disorder", "respiratory disease", "SSRI/SNRI use"]
+      }
+    },
+    "Psilocybin": {},
+    "Suboxone": {
+      "Tramadol": {
+        "risk_level": 5,
+        "interaction_type": "Caution",
+        "mechanism": "Buprenorphine may block tramadol's opioid effects, but SNRI effects remain; potential for precipitated withdrawal; limited data.",
+        "evidence": "Low",
+        "citation": "TripSit 2024",
+        "source_url": "https://combo.tripsit.me/",
+        "body_systems": {
+          "respiratory": { "score": 2, "evidence": "Low" },
+          "cardiac": { "score": 1, "evidence": "Low" },
+          "hepatic": { "score": 2, "evidence": "Low" },
+          "neurological": { "score": 3, "evidence": "Low" },
+          "thermoregulatory": { "score": 1, "evidence": "Low" },
+          "renal": { "score": 1, "evidence": "Low" }
+        },
+        "dose_multiplier": 1.2,
+        "threshold_interaction_dose": { "Suboxone": "2 mg", "Tramadol": "100 mg" },
+        "notes": "Buprenorphine may precipitate withdrawal in tramadol-dependent users; tramadol's SNRI effects independent.",
+        "contraindications": ["current tramadol dependence"]
+      }
+    },
+    "Tramadol": {}
+  },
+  "low_evidence_flags": {
+    "Cannabis_Tramadol": {
+      "note": "Insufficient evidence; possible mild CNS depression, but not confirmed.",
+      "citation": "TripSit (2024) – low confidence"
+    },
+    "LSD_Suboxone": {
+      "note": "No known interactions; low risk assumed.",
+      "citation": "TripSit (2024) – low confidence"
+    },
+    "LSD_Tramadol": {
+      "note": "Theoretical serotonin syndrome risk, but no documented cases.",
+      "citation": "TripSit (2024) – low confidence"
+    },
+    "MDMA_Suboxone": {
+      "note": "Limited evidence; suboxone may reduce MDMA euphoria, but no dangerous synergy documented.",
+      "citation": "TripSit (2024) – low confidence"
+    },
+    "Nitrous_Tramadol": {
+      "note": "No data; possible additive CNS depression, but not confirmed.",
+      "citation": "TripSit (2024) – low confidence"
+    },
+    "Psilocybin_Suboxone": {
+      "note": "No documented interactions.",
+      "citation": "TripSit (2024) – low confidence"
+    },
+    "Psilocybin_Tramadol": {
+      "note": "Theoretical serotonin syndrome, but no evidence.",
+      "citation": "TripSit (2024) – low confidence"
+    }
+  },
+  "coverage_confirmation": {
+    "total_combinations_reviewed": 78,
+    "dangerous_combinations": 15,
+    "caution_combinations": 36,
+    "low_risk_included": 20,
+    "low_evidence_flagged": 7
+  }
+}

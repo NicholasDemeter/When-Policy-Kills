@@ -1,0 +1,584 @@
+{
+  "metadata": {
+    "framework_version": "1.0",
+    "scoring_date": "2025-12",
+    "population_scope": "Adult recreational users (18-35), contemporary festival/nightlife contexts",
+    "dose_scope": "Typical recreational dosing patterns (not microdose, not heroic)",
+    "market_scope": "Real-world access including unregulated market variability where applicable",
+    "critical_note": "Scores are population-level heuristics. Do not sum indicators. Polygon area \u2260 total harm."
+  },
+  "substances": {
+    "Alcohol": {
+      "indicators": {
+        "1_acute_lethality": {
+          "score": 9,
+          "confidence": "Moderate"
+        },
+        "2_chronic_toxicity": {
+          "score": 10,
+          "confidence": "Moderate"
+        },
+        "3_addiction": {
+          "score": 8,
+          "confidence": "Moderate"
+        },
+        "4_acute_psych": {
+          "score": 3,
+          "confidence": "Moderate"
+        },
+        "5_chronic_psych": {
+          "score": 2,
+          "confidence": "Low"
+        },
+        "6_withdrawal": {
+          "score": 10,
+          "confidence": "Moderate"
+        },
+        "7_polydrug_risk": {
+          "score": 9,
+          "confidence": "Moderate"
+        },
+        "8_dose_predict": {
+          "score": 3,
+          "confidence": "Low"
+        },
+        "9_disinhibition": {
+          "score": 10,
+          "confidence": "Moderate"
+        },
+        "10_normalization": {
+          "score": 10,
+          "confidence": "High"
+        }
+      }
+    },
+    "Opioids_Street": {
+      "indicators": {
+        "1_acute_lethality": {
+          "score": 10,
+          "confidence": "Moderate"
+        },
+        "2_chronic_toxicity": {
+          "score": 5,
+          "confidence": "Moderate"
+        },
+        "3_addiction": {
+          "score": 10,
+          "confidence": "Moderate"
+        },
+        "4_acute_psych": {
+          "score": 2,
+          "confidence": "Low"
+        },
+        "5_chronic_psych": {
+          "score": 1,
+          "confidence": "Low"
+        },
+        "6_withdrawal": {
+          "score": 7,
+          "confidence": "Moderate"
+        },
+        "7_polydrug_risk": {
+          "score": 10,
+          "confidence": "Moderate"
+        },
+        "8_dose_predict": {
+          "score": 10,
+          "confidence": "High"
+        },
+        "9_disinhibition": {
+          "score": 2,
+          "confidence": "Low"
+        },
+        "10_normalization": {
+          "score": 2,
+          "confidence": "Moderate"
+        }
+      }
+    },
+    "Benzodiazepines": {
+      "indicators": {
+        "1_acute_lethality": {
+          "score": 4,
+          "confidence": "Moderate"
+        },
+        "2_chronic_toxicity": {
+          "score": 4,
+          "confidence": "Moderate"
+        },
+        "3_addiction": {
+          "score": 8,
+          "confidence": "Moderate"
+        },
+        "4_acute_psych": {
+          "score": 3,
+          "confidence": "Moderate"
+        },
+        "5_chronic_psych": {
+          "score": 6,
+          "confidence": "High"
+        },
+        "6_withdrawal": {
+          "score": 10,
+          "confidence": "Moderate"
+        },
+        "7_polydrug_risk": {
+          "score": 10,
+          "confidence": "Moderate"
+        },
+        "8_dose_predict": {
+          "score": 2,
+          "confidence": "Low"
+        },
+        "9_disinhibition": {
+          "score": 6,
+          "confidence": "Moderate"
+        },
+        "10_normalization": {
+          "score": 7,
+          "confidence": "High"
+        }
+      }
+    },
+    "Cocaine": {
+      "indicators": {
+        "1_acute_lethality": {
+          "score": 7,
+          "confidence": "Moderate"
+        },
+        "2_chronic_toxicity": {
+          "score": 7,
+          "confidence": "Moderate"
+        },
+        "3_addiction": {
+          "score": 8,
+          "confidence": "Moderate"
+        },
+        "4_acute_psych": {
+          "score": 6,
+          "confidence": "Moderate"
+        },
+        "5_chronic_psych": {
+          "score": 3,
+          "confidence": "Moderate"
+        },
+        "6_withdrawal": {
+          "score": 4,
+          "confidence": "Low"
+        },
+        "7_polydrug_risk": {
+          "score": 8,
+          "confidence": "Moderate"
+        },
+        "8_dose_predict": {
+          "score": 6,
+          "confidence": "Moderate"
+        },
+        "9_disinhibition": {
+          "score": 7,
+          "confidence": "Moderate"
+        },
+        "10_normalization": {
+          "score": 4,
+          "confidence": "Moderate"
+        }
+      }
+    },
+    "Nitrous_Oxide": {
+      "indicators": {
+        "1_acute_lethality": {
+          "score": 2,
+          "confidence": "High"
+        },
+        "2_chronic_toxicity": {
+          "score": 8,
+          "confidence": "Moderate"
+        },
+        "3_addiction": {
+          "score": 4,
+          "confidence": "Low"
+        },
+        "4_acute_psych": {
+          "score": 2,
+          "confidence": "High"
+        },
+        "5_chronic_psych": {
+          "score": 2,
+          "confidence": "Low"
+        },
+        "6_withdrawal": {
+          "score": 1,
+          "confidence": "High"
+        },
+        "7_polydrug_risk": {
+          "score": 3,
+          "confidence": "Moderate"
+        },
+        "8_dose_predict": {
+          "score": 1,
+          "confidence": "High"
+        },
+        "9_disinhibition": {
+          "score": 3,
+          "confidence": "Moderate"
+        },
+        "10_normalization": {
+          "score": 6,
+          "confidence": "Moderate"
+        }
+      }
+    },
+    "Ketamine": {
+      "indicators": {
+        "1_acute_lethality": {
+          "score": 3,
+          "confidence": "Moderate"
+        },
+        "2_chronic_toxicity": {
+          "score": 7,
+          "confidence": "Moderate"
+        },
+        "3_addiction": {
+          "score": 5,
+          "confidence": "Moderate"
+        },
+        "4_acute_psych": {
+          "score": 6,
+          "confidence": "Moderate"
+        },
+        "5_chronic_psych": {
+          "score": 3,
+          "confidence": "Low"
+        },
+        "6_withdrawal": {
+          "score": 2,
+          "confidence": "Moderate"
+        },
+        "7_polydrug_risk": {
+          "score": 8,
+          "confidence": "Moderate"
+        },
+        "8_dose_predict": {
+          "score": 3,
+          "confidence": "Moderate"
+        },
+        "9_disinhibition": {
+          "score": 5,
+          "confidence": "Moderate"
+        },
+        "10_normalization": {
+          "score": 5,
+          "confidence": "Moderate"
+        }
+      }
+    },
+    "LSD": {
+      "indicators": {
+        "1_acute_lethality": {
+          "score": 1,
+          "confidence": "High"
+        },
+        "2_chronic_toxicity": {
+          "score": 1,
+          "confidence": "High"
+        },
+        "3_addiction": {
+          "score": 1,
+          "confidence": "High"
+        },
+        "4_acute_psych": {
+          "score": 8,
+          "confidence": "Moderate"
+        },
+        "5_chronic_psych": {
+          "score": 4,
+          "confidence": "Low"
+        },
+        "6_withdrawal": {
+          "score": 1,
+          "confidence": "High"
+        },
+        "7_polydrug_risk": {
+          "score": 2,
+          "confidence": "Moderate"
+        },
+        "8_dose_predict": {
+          "score": 4,
+          "confidence": "Moderate"
+        },
+        "9_disinhibition": {
+          "score": 3,
+          "confidence": "Moderate"
+        },
+        "10_normalization": {
+          "score": 3,
+          "confidence": "Moderate"
+        }
+      }
+    },
+    "Psilocybin": {
+      "indicators": {
+        "1_acute_lethality": {
+          "score": 1,
+          "confidence": "High"
+        },
+        "2_chronic_toxicity": {
+          "score": 1,
+          "confidence": "High"
+        },
+        "3_addiction": {
+          "score": 1,
+          "confidence": "High"
+        },
+        "4_acute_psych": {
+          "score": 7,
+          "confidence": "Moderate"
+        },
+        "5_chronic_psych": {
+          "score": 3,
+          "confidence": "Low"
+        },
+        "6_withdrawal": {
+          "score": 1,
+          "confidence": "High"
+        },
+        "7_polydrug_risk": {
+          "score": 2,
+          "confidence": "Moderate"
+        },
+        "8_dose_predict": {
+          "score": 5,
+          "confidence": "Low"
+        },
+        "9_disinhibition": {
+          "score": 2,
+          "confidence": "Moderate"
+        },
+        "10_normalization": {
+          "score": 4,
+          "confidence": "Moderate"
+        }
+      }
+    },
+    "MDMA": {
+      "indicators": {
+        "1_acute_lethality": {
+          "score": 5,
+          "confidence": "Moderate"
+        },
+        "2_chronic_toxicity": {
+          "score": 4,
+          "confidence": "Low"
+        },
+        "3_addiction": {
+          "score": 3,
+          "confidence": "Moderate"
+        },
+        "4_acute_psych": {
+          "score": 3,
+          "confidence": "Moderate"
+        },
+        "5_chronic_psych": {
+          "score": 4,
+          "confidence": "Low"
+        },
+        "6_withdrawal": {
+          "score": 4,
+          "confidence": "Moderate"
+        },
+        "7_polydrug_risk": {
+          "score": 5,
+          "confidence": "Moderate"
+        },
+        "8_dose_predict": {
+          "score": 6,
+          "confidence": "Moderate"
+        },
+        "9_disinhibition": {
+          "score": 5,
+          "confidence": "Moderate"
+        },
+        "10_normalization": {
+          "score": 6,
+          "confidence": "Moderate"
+        }
+      }
+    },
+    "Cannabis": {
+      "indicators": {
+        "1_acute_lethality": {
+          "score": 1,
+          "confidence": "High"
+        },
+        "2_chronic_toxicity": {
+          "score": 3,
+          "confidence": "Moderate"
+        },
+        "3_addiction": {
+          "score": 4,
+          "confidence": "Moderate"
+        },
+        "4_acute_psych": {
+          "score": 5,
+          "confidence": "Moderate"
+        },
+        "5_chronic_psych": {
+          "score": 5,
+          "confidence": "Low"
+        },
+        "6_withdrawal": {
+          "score": 3,
+          "confidence": "Moderate"
+        },
+        "7_polydrug_risk": {
+          "score": 2,
+          "confidence": "Moderate"
+        },
+        "8_dose_predict": {
+          "score": 4,
+          "confidence": "Moderate"
+        },
+        "9_disinhibition": {
+          "score": 4,
+          "confidence": "Moderate"
+        },
+        "10_normalization": {
+          "score": 9,
+          "confidence": "High"
+        }
+      }
+    },
+    "Kratom": {
+      "indicators": {
+        "1_acute_lethality": {
+          "score": 3,
+          "confidence": "High"
+        },
+        "2_chronic_toxicity": {
+          "score": 6,
+          "confidence": "Moderate"
+        },
+        "3_addiction": {
+          "score": 7,
+          "confidence": "High"
+        },
+        "4_acute_psych": {
+          "score": 4,
+          "confidence": "Moderate"
+        },
+        "5_chronic_psych": {
+          "score": 3,
+          "confidence": "Moderate"
+        },
+        "6_withdrawal": {
+          "score": 7,
+          "confidence": "High"
+        },
+        "7_polydrug_risk": {
+          "score": 8,
+          "confidence": "Moderate"
+        },
+        "8_dose_predict": {
+          "score": 6,
+          "confidence": "Moderate"
+        },
+        "9_disinhibition": {
+          "score": 4,
+          "confidence": "High"
+        },
+        "10_normalization": {
+          "score": 6,
+          "confidence": "Moderate"
+        }
+      }
+    },
+    "Suboxone": {
+      "indicators": {
+        "1_acute_lethality": {
+          "score": 2,
+          "confidence": "Moderate"
+        },
+        "2_chronic_toxicity": {
+          "score": 5,
+          "confidence": "Moderate"
+        },
+        "3_addiction": {
+          "score": 8,
+          "confidence": "High"
+        },
+        "4_acute_psych": {
+          "score": 3,
+          "confidence": "Moderate"
+        },
+        "5_chronic_psych": {
+          "score": 2,
+          "confidence": "Low"
+        },
+        "6_withdrawal": {
+          "score": 6,
+          "confidence": "Moderate"
+        },
+        "7_polydrug_risk": {
+          "score": 9,
+          "confidence": "High"
+        },
+        "8_dose_predict": {
+          "score": 4,
+          "confidence": "Moderate"
+        },
+        "9_disinhibition": {
+          "score": 3,
+          "confidence": "High"
+        },
+        "10_normalization": {
+          "score": 5,
+          "confidence": "Moderate"
+        }
+      }
+    },
+    "Tramadol": {
+      "indicators": {
+        "1_acute_lethality": {
+          "score": 5,
+          "confidence": "Moderate"
+        },
+        "2_chronic_toxicity": {
+          "score": 5,
+          "confidence": "Moderate"
+        },
+        "3_addiction": {
+          "score": 7,
+          "confidence": "High"
+        },
+        "4_acute_psych": {
+          "score": 5,
+          "confidence": "Moderate"
+        },
+        "5_chronic_psych": {
+          "score": 3,
+          "confidence": "Moderate"
+        },
+        "6_withdrawal": {
+          "score": 6,
+          "confidence": "Moderate"
+        },
+        "7_polydrug_risk": {
+          "score": 8,
+          "confidence": "Moderate"
+        },
+        "8_dose_predict": {
+          "score": 5,
+          "confidence": "Moderate"
+        },
+        "9_disinhibition": {
+          "score": 5,
+          "confidence": "High"
+        },
+        "10_normalization": {
+          "score": 6,
+          "confidence": "Moderate"
+        }
+      }
+    }
+  }
+}

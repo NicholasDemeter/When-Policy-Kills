@@ -1,0 +1,594 @@
+{
+  "Alcohol": {
+    "Benzodiazepines": {
+      "risk_level": 9,
+      "interaction_type": "Dangerous",
+      "mechanism": "Synergistic CNS depression leading to respiratory failure and coma.",
+      "evidence": "High",
+      "citation": "CDC SUDORS 2024; TripSit Combination Chart 2024",
+      "source_url": "https://www.cdc.gov/nchs/nvss/vsrr/drug-overdose-data.htm"
+    },
+    "Cannabis": {
+      "risk_level": 4,
+      "interaction_type": "Caution",
+      "mechanism": "Additive cognitive and motor impairment, increased accident risk.",
+      "evidence": "Moderate",
+      "citation": "TripSit Combination Chart 2024; Sewell et al. 2009",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Cocaine": {
+      "risk_level": 7,
+      "interaction_type": "Dangerous",
+      "mechanism": "Formation of cocaethylene, increasing cardiotoxicity and risk of sudden death.",
+      "evidence": "High",
+      "citation": "Drugs.com Interaction Checker; Pennings et al. 2002",
+      "source_url": "https://www.drugs.com/drug-interactions/"
+    },
+    "Ketamine": {
+      "risk_level": 8,
+      "interaction_type": "Dangerous",
+      "mechanism": "Profound CNS depression, respiratory arrest.",
+      "evidence": "High",
+      "citation": "TripSit; Morgan et al. 2012",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Kratom": {
+      "risk_level": 5,
+      "interaction_type": "Caution",
+      "mechanism": "Additive sedative effects, especially at high kratom doses.",
+      "evidence": "Moderate",
+      "citation": "TripSit; CDC SUDORS (kratom co-detected with alcohol)",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "LSD": {
+      "risk_level": 2,
+      "interaction_type": "Low Risk",
+      "mechanism": "No significant physical interaction; alcohol may dull the psychedelic experience.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "MDMA": {
+      "risk_level": 6,
+      "interaction_type": "Caution",
+      "mechanism": "Increased risk of dehydration, hyperthermia, and neurotoxicity.",
+      "evidence": "Moderate",
+      "citation": "TripSit; Parrott 2002",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Nitrous_Oxide": {
+      "risk_level": 5,
+      "interaction_type": "Caution",
+      "mechanism": "Additive CNS depression, increased risk of falls and hypoxia.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Opioids_(Heroin/Fentanyl)": {
+      "risk_level": 10,
+      "interaction_type": "Dangerous",
+      "mechanism": "Synergistic respiratory depression, leading to fatal overdose.",
+      "evidence": "High",
+      "citation": "CDC SUDORS 2024; NIDA",
+      "source_url": "https://www.cdc.gov/nchs/nvss/vsrr/drug-overdose-data.htm"
+    },
+    "Psilocybin": {
+      "risk_level": 2,
+      "interaction_type": "Low Risk",
+      "mechanism": "Minimal physical interaction; may alter subjective effects.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Suboxone": {
+      "risk_level": 8,
+      "interaction_type": "Dangerous",
+      "mechanism": "Additive respiratory depression despite buprenorphine's ceiling effect.",
+      "evidence": "High",
+      "citation": "FDA label; CDC",
+      "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/"
+    },
+    "Tramadol": {
+      "risk_level": 6,
+      "interaction_type": "Caution",
+      "mechanism": "Additive CNS depression and lowered seizure threshold.",
+      "evidence": "Moderate",
+      "citation": "TripSit; Drugs.com",
+      "source_url": "https://www.drugs.com/drug-interactions/"
+    }
+  },
+  "Benzodiazepines": {
+    "Cannabis": {
+      "risk_level": 3,
+      "interaction_type": "Low Risk",
+      "mechanism": "Mild additive sedation, not clinically dangerous.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Cocaine": {
+      "risk_level": 5,
+      "interaction_type": "Caution",
+      "mechanism": "Cocaine's stimulant effects may mask benzodiazepine sedation, increasing cardiovascular strain.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Ketamine": {
+      "risk_level": 8,
+      "interaction_type": "Dangerous",
+      "mechanism": "Severe CNS depression, respiratory failure.",
+      "evidence": "High",
+      "citation": "TripSit; Morgan et al. 2012",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Kratom": {
+      "risk_level": 5,
+      "interaction_type": "Caution",
+      "mechanism": "Additive sedative effects.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "LSD": {
+      "risk_level": 2,
+      "interaction_type": "Low Risk",
+      "mechanism": "Benzodiazepines are used to abort bad trips; no adverse synergy.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "MDMA": {
+      "risk_level": 4,
+      "interaction_type": "Caution",
+      "mechanism": "Benzodiazepines may blunt MDMA's effects and increase sedation.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Nitrous_Oxide": {
+      "risk_level": 5,
+      "interaction_type": "Caution",
+      "mechanism": "Additive CNS depression, hypoxia risk.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Opioids_(Heroin/Fentanyl)": {
+      "risk_level": 10,
+      "interaction_type": "Dangerous",
+      "mechanism": "Synergistic respiratory depression, leading to fatal overdose.",
+      "evidence": "High",
+      "citation": "CDC SUDORS; FDA",
+      "source_url": "https://www.cdc.gov/nchs/nvss/vsrr/drug-overdose-data.htm"
+    },
+    "Psilocybin": {
+      "risk_level": 2,
+      "interaction_type": "Low Risk",
+      "mechanism": "No significant physical interaction.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Suboxone": {
+      "risk_level": 9,
+      "interaction_type": "Dangerous",
+      "mechanism": "Severe respiratory depression; benzodiazepines are not blocked by naloxone.",
+      "evidence": "High",
+      "citation": "FDA boxed warning; CDC",
+      "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/"
+    },
+    "Tramadol": {
+      "risk_level": 7,
+      "interaction_type": "Dangerous",
+      "mechanism": "Additive CNS depression and seizure risk (though benzodiazepines are anticonvulsant, sedation dominates).",
+      "evidence": "Moderate",
+      "citation": "TripSit; Drugs.com",
+      "source_url": "https://www.drugs.com/drug-interactions/"
+    }
+  },
+  "Cannabis": {
+    "Cocaine": {
+      "risk_level": 4,
+      "interaction_type": "Caution",
+      "mechanism": "Increased heart rate and anxiety, possible panic attacks.",
+      "evidence": "Moderate",
+      "citation": "TripSit; NIDA",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Ketamine": {
+      "risk_level": 4,
+      "interaction_type": "Caution",
+      "mechanism": "Enhanced dissociation and confusion.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Kratom": {
+      "risk_level": 3,
+      "interaction_type": "Low Risk",
+      "mechanism": "Mild additive sedation, no documented dangerous synergy.",
+      "evidence": "Low",
+      "citation": "TripSit 2024",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "LSD": {
+      "risk_level": 3,
+      "interaction_type": "Low Risk",
+      "mechanism": "Cannabis can intensify psychedelic effects, increasing anxiety but not physical danger.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "MDMA": {
+      "risk_level": 4,
+      "interaction_type": "Caution",
+      "mechanism": "Additive cardiovascular strain and anxiety.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Nitrous_Oxide": {
+      "risk_level": 3,
+      "interaction_type": "Low Risk",
+      "mechanism": "Mild dissociation enhancement, not dangerous.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Opioids_(Heroin/Fentanyl)": {
+      "risk_level": 4,
+      "interaction_type": "Caution",
+      "mechanism": "Additive sedation, but respiratory depression is not significantly potentiated.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Psilocybin": {
+      "risk_level": 3,
+      "interaction_type": "Low Risk",
+      "mechanism": "Similar to LSD; can intensify effects, but not physically dangerous.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Suboxone": {
+      "risk_level": 3,
+      "interaction_type": "Low Risk",
+      "mechanism": "Mild additive sedation, no documented dangerous synergy.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    }
+  },
+  "Cocaine": {
+    "Ketamine": {
+      "risk_level": 5,
+      "interaction_type": "Caution",
+      "mechanism": "Unpredictable cardiovascular effects; stimulant plus dissociative may cause arrhythmias.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Kratom": {
+      "risk_level": 4,
+      "interaction_type": "Caution",
+      "mechanism": "Kratom's mild stimulant effects at low doses may add to cocaine's cardiovascular strain; limited evidence.",
+      "evidence": "Low",
+      "citation": "TripSit 2024",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "LSD": {
+      "risk_level": 3,
+      "interaction_type": "Low Risk",
+      "mechanism": "Stimulant plus psychedelic may increase anxiety, but not physically dangerous.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "MDMA": {
+      "risk_level": 6,
+      "interaction_type": "Caution",
+      "mechanism": "Severe cardiovascular strain, hyperthermia, and risk of serotonin syndrome.",
+      "evidence": "High",
+      "citation": "TripSit; NIDA",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Nitrous_Oxide": {
+      "risk_level": 4,
+      "interaction_type": "Caution",
+      "mechanism": "Increased oxygen demand from cocaine combined with hypoxia risk from nitrous.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Opioids_(Heroin/Fentanyl)": {
+      "risk_level": 7,
+      "interaction_type": "Dangerous",
+      "mechanism": "Speedball combination: cardiorespiratory collapse due to opposing effects.",
+      "evidence": "High",
+      "citation": "CDC SUDORS; NIDA",
+      "source_url": "https://www.cdc.gov/nchs/nvss/vsrr/drug-overdose-data.htm"
+    },
+    "Psilocybin": {
+      "risk_level": 3,
+      "interaction_type": "Low Risk",
+      "mechanism": "Minimal physical interaction.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Suboxone": {
+      "risk_level": 4,
+      "interaction_type": "Caution",
+      "mechanism": "Cocaine's cardiovascular effects unchanged; suboxone may add sedation, but no major synergy.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Tramadol": {
+      "risk_level": 6,
+      "interaction_type": "Caution",
+      "mechanism": "Both lower seizure threshold; risk of serotonin syndrome and cardiovascular stress.",
+      "evidence": "Moderate",
+      "citation": "TripSit; Drugs.com",
+      "source_url": "https://www.drugs.com/drug-interactions/"
+    }
+  },
+  "Ketamine": {
+    "Kratom": {
+      "risk_level": 4,
+      "interaction_type": "Caution",
+      "mechanism": "Possible additive sedation and dissociation; limited data.",
+      "evidence": "Low",
+      "citation": "TripSit 2024",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "LSD": {
+      "risk_level": 4,
+      "interaction_type": "Caution",
+      "mechanism": "Dissociative plus psychedelic can cause overwhelming confusion and panic.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "MDMA": {
+      "risk_level": 5,
+      "interaction_type": "Caution",
+      "mechanism": "Combined dissociative and empathogen effects may lead to unpredictable behavior and cardiovascular strain.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Nitrous_Oxide": {
+      "risk_level": 5,
+      "interaction_type": "Caution",
+      "mechanism": "Additive dissociative effects and hypoxia risk.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Opioids_(Heroin/Fentanyl)": {
+      "risk_level": 9,
+      "interaction_type": "Dangerous",
+      "mechanism": "Profound respiratory depression; both are CNS depressants.",
+      "evidence": "High",
+      "citation": "TripSit; Morgan et al. 2012",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Psilocybin": {
+      "risk_level": 4,
+      "interaction_type": "Caution",
+      "mechanism": "Similar to LSD; may cause confusion and anxiety.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Suboxone": {
+      "risk_level": 8,
+      "interaction_type": "Dangerous",
+      "mechanism": "Additive respiratory depression despite buprenorphine's partial agonism.",
+      "evidence": "Moderate",
+      "citation": "TripSit; FDA",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Tramadol": {
+      "risk_level": 6,
+      "interaction_type": "Caution",
+      "mechanism": "CNS depression and possible seizure risk.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    }
+  },
+  "Kratom": {
+    "LSD": {
+      "risk_level": 2,
+      "interaction_type": "Low Risk",
+      "mechanism": "No known interactions; theoretical low risk.",
+      "evidence": "Low",
+      "citation": "TripSit 2024",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "MDMA": {
+      "risk_level": 4,
+      "interaction_type": "Caution",
+      "mechanism": "Potential for increased serotonin effects, but no documented cases.",
+      "evidence": "Low",
+      "citation": "TripSit 2024",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Nitrous_Oxide": {
+      "risk_level": 3,
+      "interaction_type": "Low Risk",
+      "mechanism": "Theoretical mild CNS depression; no documented interactions.",
+      "evidence": "Low",
+      "citation": "TripSit 2024",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Opioids_(Heroin/Fentanyl)": {
+      "risk_level": 7,
+      "interaction_type": "Dangerous",
+      "mechanism": "Additive mu-opioid agonism increases respiratory depression risk.",
+      "evidence": "Moderate",
+      "citation": "CDC SUDORS (90% of kratom deaths involve fentanyl); TripSit",
+      "source_url": "https://www.cdc.gov/mmwr/volumes/68/wr/mm6814a2.htm"
+    },
+    "Psilocybin": {
+      "risk_level": 2,
+      "interaction_type": "Low Risk",
+      "mechanism": "No data; unlikely to be dangerous.",
+      "evidence": "Low",
+      "citation": "TripSit 2024",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Suboxone": {
+      "risk_level": 5,
+      "interaction_type": "Caution",
+      "mechanism": "Possible precipitated withdrawal if kratom-dependent; buprenorphine may block kratom's opioid effects, but evidence limited.",
+      "evidence": "Low",
+      "citation": "TripSit 2024",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Tramadol": {
+      "risk_level": 5,
+      "interaction_type": "Caution",
+      "mechanism": "Theoretical additive opioid effects and seizure risk; limited data.",
+      "evidence": "Low",
+      "citation": "TripSit 2024",
+      "source_url": "https://combo.tripsit.me/"
+    }
+  },
+  "LSD": {
+    "MDMA": {
+      "risk_level": 4,
+      "interaction_type": "Caution",
+      "mechanism": "Candyflipping: intense psychological experience, but not physically dangerous.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Nitrous_Oxide": {
+      "risk_level": 3,
+      "interaction_type": "Low Risk",
+      "mechanism": "Mild dissociation enhancement, no significant danger.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Opioids_(Heroin/Fentanyl)": {
+      "risk_level": 2,
+      "interaction_type": "Low Risk",
+      "mechanism": "No significant interaction; opioids may sedate, but no synergy.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Psilocybin": {
+      "risk_level": 4,
+      "interaction_type": "Caution",
+      "mechanism": "Psychedelic synergy may cause overwhelming psychological distress.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    }
+  },
+  "MDMA": {
+    "Nitrous_Oxide": {
+      "risk_level": 4,
+      "interaction_type": "Caution",
+      "mechanism": "Increased dissociation and impaired judgment, possible hyperthermia.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Opioids_(Heroin/Fentanyl)": {
+      "risk_level": 5,
+      "interaction_type": "Caution",
+      "mechanism": "Opioids depress respiration while MDMA stimulates; unpredictable cardiorespiratory effects.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Psilocybin": {
+      "risk_level": 4,
+      "interaction_type": "Caution",
+      "mechanism": "Combined empathogen and psychedelic may intensify emotional experience.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Tramadol": {
+      "risk_level": 8,
+      "interaction_type": "Dangerous",
+      "mechanism": "Serotonin syndrome risk: MDMA releases serotonin, tramadol inhibits reuptake.",
+      "evidence": "High",
+      "citation": "PubMed case reports; FDA Adverse Events",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=MDMA+tramadol+serotonin+syndrome"
+    }
+  },
+  "Nitrous_Oxide": {
+    "Opioids_(Heroin/Fentanyl)": {
+      "risk_level": 6,
+      "interaction_type": "Caution",
+      "mechanism": "Additive hypoxia risk; both can cause oxygen deprivation.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Psilocybin": {
+      "risk_level": 3,
+      "interaction_type": "Low Risk",
+      "mechanism": "Minimal physical interaction.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Suboxone": {
+      "risk_level": 5,
+      "interaction_type": "Caution",
+      "mechanism": "CNS depression and hypoxia risk.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    }
+  },
+  "Opioids_(Heroin/Fentanyl)": {
+    "Psilocybin": {
+      "risk_level": 2,
+      "interaction_type": "Low Risk",
+      "mechanism": "No significant physical interaction.",
+      "evidence": "Moderate",
+      "citation": "TripSit",
+      "source_url": "https://combo.tripsit.me/"
+    },
+    "Suboxone": {
+      "risk_level": 6,
+      "interaction_type": "Caution",
+      "mechanism": "Precipitated withdrawal if taken together; not lethal but can be severe.",
+      "evidence": "High",
+      "citation": "FDA label; ASAM",
+      "source_url": "https://www.accessdata.fda.gov/scripts/cder/daf/"
+    },
+    "Tramadol": {
+      "risk_level": 7,
+      "interaction_type": "Dangerous",
+      "mechanism": "Additive respiratory depression and increased seizure risk.",
+      "evidence": "Moderate",
+      "citation": "TripSit; Drugs.com",
+      "source_url": "https://www.drugs.com/drug-interactions/"
+    }
+  },
+  "Psilocybin": {},
+  "Suboxone": {
+    "Tramadol": {
+      "risk_level": 5,
+      "interaction_type": "Caution",
+      "mechanism": "Buprenorphine may block tramadol's opioid effects, but SNRI effects remain; potential for precipitated withdrawal; limited data.",
+      "evidence": "Low",
+      "citation": "TripSit 2024",
+      "source_url": "https://combo.tripsit.me/"
+    }
+  },
+  "Tramadol": {}
+}
