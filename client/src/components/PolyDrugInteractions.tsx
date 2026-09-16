@@ -207,7 +207,7 @@ export function PolyDrugInteractions() {
       </div>
 
       {/* ── Narrative ── */}
-      <div className="space-y-4 text-slate-300 leading-relaxed max-w-4xl">
+      <div className="space-y-4 text-slate-300 leading-relaxed">
         <p>
           Polydrug interactions represent one of the most lethal and least-discussed gaps in harm reduction education. While individual substances carry documented risks, the combination of two or more substances frequently produces synergistic effects that are not merely additive — they are multiplicative. A substance rated 5/10 for risk in isolation can become a 9/10 when combined with another CNS depressant. The pharmacological mechanisms are well-documented; the policy response has been catastrophically inadequate.
         </p>

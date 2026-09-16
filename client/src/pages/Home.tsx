@@ -23,6 +23,22 @@ const SUBSTANCES = [
   { id: 'tramadol', number: '13', name: 'Tramadol', subheading: 'The Forgotten Opioid', image: '/images/Tramadol.webp' },
 ];
 
+const SUBSTANCE_COLORS: Record<string, string> = {
+  alcohol: '#22d3ee',
+  opioids: '#e879f9',
+  benzodiazepines: '#fbbf24',
+  cocaine: '#4ade80',
+  nitrous: '#a855f7',
+  ketamine: '#ff00ff',
+  mdma: '#00ffff',
+  lsd: '#00ff00',
+  psilocybin: '#ffff00',
+  cannabis: '#ff8800',
+  kratom: '#7cfc00',
+  suboxone: '#ff6347',
+  tramadol: '#da70d6',
+};
+
 const NARRATIVES: Record<string, { origin: string; migration: string; harm: string; incoherence: string; benefits: string }> = {
   alcohol: {
     origin: 'Alcohol is the oldest regulated psychoactive substance in Western law, yet its classification reflects cultural accident rather than pharmacological evidence. Unlike drugs scheduled in the 20th century based on abuse potential, alcohol\'s legal status emerged from centuries of tradition—interrupted only by Prohibition\'s spectacular failure (1920-1933). Today it remains unscheduled despite causing 95,000-100,000 annual U.S. deaths, making it deadlier than all illegal drugs combined.[^1][^2]',
@@ -94,6 +110,27 @@ const NARRATIVES: Record<string, { origin: string; migration: string; harm: stri
     incoherence: 'Cannabis\'s Schedule I classification is profoundly incoherent: the drug has lower harm potential than alcohol (legal) or tobacco (legal), yet remains federally prohibited. Cannabis has documented medical utility for pain, nausea, and seizures, yet Schedule I status blocks research. This gap reveals that scheduling reflects political convenience and racial targeting rather than evidence-based harm assessment.[^4]',
     benefits: 'Who benefits? Law enforcement profits from criminalization; the prison-industrial complex profited from cannabis-related incarceration, disproportionately affecting Black communities. Meanwhile, cannabis\'s medical potential remains blocked by Schedule I restrictions. Recent state-level legalization demonstrates that prohibition reflects political convenience rather than pharmacological necessity.',
   },
+  kratom: {
+    origin: 'Kratom (Mitragyna speciosa) is a Southeast Asian plant whose leaves contain alkaloids that interact with opioid receptors. Used for centuries in Thailand and Malaysia as a traditional stimulant and pain reliever, kratom entered Western markets in the 2000s as an unscheduled herbal supplement. Its legal ambiguity reflects the regulatory system\'s failure to categorize substances that don\'t fit existing frameworks.[^1]',
+    migration: 'Kratom migrated from traditional Southeast Asian use to Western markets through the supplement industry, sold in smoke shops and online as a "legal high" and opioid withdrawal aid. This migration reflects two contradictory user populations: people seeking a mild stimulant, and people using it to manage opioid dependence. The DEA attempted emergency scheduling in 2016 but faced unprecedented public opposition, revealing kratom\'s complex harm-benefit profile.[^2]',
+    harm: 'The harm profile is moderate and contested: acute lethality is low (2/10) in isolation, but kratom has been involved in polydrug overdose deaths. Long-term physical damage is moderate (4/10), with cases of liver toxicity and dependence. The addiction potential is real (5/10)—kratom produces withdrawal symptoms similar to opioids, though less severe. The primary harm is the regulatory vacuum: no quality control, no dosing standards, no safety monitoring.[^3]',
+    incoherence: 'Kratom\'s unscheduled status creates perverse outcomes: it\'s legal in most U.S. states despite opioid-like properties, while cannabis (lower harm profile) remains Schedule I in federal law. The classification incoherence reflects the regulatory system\'s inability to handle substances that are simultaneously traditional medicine, opioid withdrawal aid, and recreational drug. Evidence-based scheduling would require acknowledging kratom\'s harm-reduction potential for opioid-dependent users.[^4]',
+    benefits: 'Who benefits from kratom\'s legal ambiguity? Supplement companies selling unregulated products without safety standards. Who is harmed? Users who lack accurate dosing information, quality controls, or medical guidance. The regulatory vacuum serves industry profits while exposing vulnerable users—particularly those using kratom to manage opioid withdrawal—to unnecessary risk.',
+  },
+  suboxone: {
+    origin: 'Suboxone (buprenorphine/naloxone) is a Schedule III partial opioid agonist approved in 2002 as the first opioid use disorder treatment that could be prescribed in office-based settings rather than requiring methadone clinic attendance. Buprenorphine\'s partial agonist properties produce a ceiling effect on respiratory depression, making it significantly safer in overdose than full agonists. The naloxone component deters injection misuse by precipitating withdrawal if the film is dissolved and injected.[^1]',
+    migration: 'Suboxone\'s migration from treatment tool to controlled substance reflects the criminalization of addiction medicine. Despite robust evidence for its efficacy in reducing overdose deaths, illicit drug use, and criminal activity, buprenorphine prescribing has been restricted by federal waiver requirements (the X-waiver, eliminated only in 2023), pharmacy reluctance, and stigma. The result: a medication that could save lives is treated with the same suspicion as the addiction it treats.[^2]',
+    harm: 'The harm profile shows low acute lethality in isolation (2/10) due to the ceiling effect, but the polydrug risk is the highest of any substance in this analysis (9/10). Buprenorphine combined with benzodiazepines, alcohol, or other CNS depressants removes the ceiling effect and dramatically increases overdose risk. This interaction is responsible for the majority of buprenorphine-involved overdose deaths. The addiction potential score (8/10) reflects physical dependence—patients on maintenance therapy will experience withdrawal if the medication is abruptly discontinued.[^3]',
+    incoherence: 'The classification incoherence for Suboxone is uniquely cruel: it is simultaneously a life-saving medication and a controlled substance subject to restrictions that limit its availability. These restrictions have no pharmacological justification—they reflect moral judgments about addiction treatment rather than evidence-based harm assessment. The result is a treatment gap that kills people: patients who cannot access buprenorphine return to street opioids.[^4]',
+    benefits: 'Who benefits from Suboxone\'s restricted access? Methadone clinics that maintain monopolies on opioid agonist treatment; pharmaceutical companies that profit from branded formulations; law enforcement agencies that conflate treatment medications with drug abuse. Who pays the cost? Patients with opioid use disorder who cannot access evidence-based treatment and die of overdose as a result.',
+  },
+  tramadol: {
+    origin: 'Tramadol is a synthetic opioid analgesic developed in 1962 and marketed as a "safer" alternative to traditional opioids due to its dual mechanism of action (weak mu-opioid agonism plus serotonin-norepinephrine reuptake inhibition). It was classified Schedule IV in 2014—the last major opioid to receive scheduling—after evidence accumulated showing significant abuse potential and dependence. Its delayed scheduling reflects the pharmaceutical industry\'s successful marketing of tramadol as a non-opioid.[^1]',
+    migration: 'Tramadol\'s cultural migration from "safe painkiller" to scheduled substance mirrors the broader opioid crisis narrative: pharmaceutical marketing minimized addiction risk, prescribing expanded dramatically, dependence emerged at scale. Unlike fentanyl or oxycodone, tramadol\'s harm profile includes unique risks: at high doses, it lowers the seizure threshold, creating a distinct overdose presentation that emergency physicians may not immediately recognize as opioid toxicity.[^2]',
+    harm: 'The harm profile shows moderate acute lethality (5/10) with unique features: tramadol overdose can cause both respiratory depression (opioid mechanism) and seizures (serotonergic mechanism), complicating treatment. Long-term physical damage is moderate (5/10). The addiction potential is significant (6/10)—tramadol withdrawal combines opioid withdrawal symptoms with atypical features including anxiety, paresthesias, and perceptual disturbances. Naloxone only partially reverses tramadol overdose, creating treatment challenges.[^3]',
+    incoherence: 'Tramadol\'s Schedule IV classification is incoherent: it has higher abuse potential and more complex harm profile than many Schedule III or IV substances, yet was scheduled lower than traditional opioids. This reflects successful pharmaceutical lobbying rather than pharmacological evidence. The delayed scheduling (2014, decades after introduction) allowed widespread prescribing without appropriate monitoring, contributing to a tramadol dependence epidemic that remains underrecognized within the broader opioid crisis.[^4]',
+    benefits: 'Who benefits from tramadol\'s delayed scheduling and low classification? The pharmaceutical companies that marketed it as a safe alternative to opioids, capturing market share while avoiding Schedule II restrictions. Who paid the cost? Patients who developed dependence believing they were taking a non-addictive medication, and emergency physicians dealing with an overdose presentation that standard opioid reversal protocols only partially address.',
+  },
 };
 
 export default function Home() {
@@ -113,21 +150,20 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            src="/images/hero_masthead.webp" 
-            alt="When Policy Kills" 
+          <img
+            src="/images/hero_masthead.webp"
+            alt="When Policy Kills"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
-        
         <div className="relative z-10 text-center max-w-2xl mx-auto px-4">
           <div className="inline-block px-4 py-2 border border-cyan-400 rounded-full mb-6 text-cyan-400 text-sm tracking-wider">
             RESEARCH REPORT 2026
           </div>
           <h1 className="text-6xl font-bold mb-4 text-white">When Policy Kills</h1>
           <p className="text-xl text-slate-200 mb-8">Temporal Persistence of Flawed Epistemology</p>
-          <button 
+          <button
             onClick={() => document.getElementById('methodology')?.scrollIntoView({ behavior: 'smooth' })}
             className="px-6 py-3 bg-cyan-500 text-black font-semibold hover:bg-cyan-400 transition"
           >
@@ -151,10 +187,9 @@ export default function Home() {
 
       {/* Substance Sections */}
       {SUBSTANCES.map((substance, index) => {
-        const isOdd = index % 2 === 0;
         const narrative = NARRATIVES[substance.id as keyof typeof NARRATIVES];
-        
-        // Map substance IDs to score keys
+        const color = SUBSTANCE_COLORS[substance.id] || '#22d3ee';
+
         const scoreKeyMap: Record<string, string> = {
           alcohol: 'Alcohol',
           opioids: 'Opioids_Street',
@@ -166,63 +201,62 @@ export default function Home() {
           lsd: 'LSD',
           psilocybin: 'Psilocybin',
           cannabis: 'Cannabis',
+          kratom: 'Kratom',
+          suboxone: 'Suboxone',
+          tramadol: 'Tramadol',
         };
-        
+
         const scoreKey = scoreKeyMap[substance.id];
         const scoresData = scores as any;
         const substanceScores = scoreKey ? scoresData.substances?.[scoreKey]?.indicators : null;
 
         return (
-          <section 
-            key={substance.id} 
+          <section
+            key={substance.id}
             id={substance.id}
-            className="py-16 px-4 border-t border-slate-800"
+            className="border-t border-slate-800"
           >
-            <div className="max-w-6xl mx-auto">
-              {/* Section Header */}
-              <div className="mb-8">
-                <div className="inline-block bg-cyan-500 text-black px-3 py-2 font-bold text-lg mb-3 rounded">
+            {/* Full-width Banner with text overlay */}
+            <div className="relative w-full h-64 overflow-hidden">
+              <img
+                src={substance.image}
+                alt={substance.name}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/60"></div>
+              <div className="absolute bottom-0 left-0 right-0 px-8 py-6 max-w-6xl mx-auto">
+                <div
+                  className="inline-block px-3 py-1 font-bold text-sm mb-2 rounded text-black"
+                  style={{ backgroundColor: color }}
+                >
                   {substance.number}
                 </div>
-                <h2 className="text-4xl font-bold mb-2">{substance.name}</h2>
-                <p className="text-lg text-cyan-400">{substance.subheading}</p>
+                <h2 className="text-4xl font-bold text-white mb-1">{substance.name}</h2>
+                <p className="text-lg" style={{ color }}>{substance.subheading}</p>
               </div>
+            </div>
 
-              {/* Narrative + Spider Chart */}
+            {/* Narrative Content */}
+            <div className="py-12 px-4 max-w-6xl mx-auto">
               <div className="relative overflow-auto">
-                {/* Narrative Text with Floated Image */}
                 <div className="text-slate-300 leading-relaxed space-y-4 prose prose-invert max-w-none">
-                  {/* Image - Floated INSIDE text - 25-30% of text width */}
-                  {substance.image && (
-                    <img
-                      src={substance.image}
-                      alt={substance.name}
-                      className={`object-cover mb-4 ${isOdd ? 'float-right ml-6' : 'float-left mr-6'}`}
-                      style={{ width: '380px', height: '304px' }}
-                    />
-                  )}
-                  
-                  <p>{narrative?.origin}</p>
-                  <p>{narrative?.migration}</p>
-                  <p>{narrative?.harm}</p>
-                  
-                  {/* Spider Chart - Floated INSIDE text at bottom - Same size as drug image */}
+
+                  {/* Spider Chart — floated right */}
                   {substanceScores && (
-                    <div 
-                      className={`my-4 ${isOdd ? 'float-left mr-6' : 'float-right ml-6'}`}
-                      style={{ width: '380px', height: '304px' }}
-                    >
-                      <RiskRadar 
+                    <div className="float-right ml-6 mb-4" style={{ width: '380px', height: '340px' }}>
+                      <RiskRadar
                         data={substanceScores}
+                        color={color}
                       />
                     </div>
                   )}
-                  
+
+                  <p>{narrative?.origin}</p>
+                  <p>{narrative?.migration}</p>
+                  <p>{narrative?.harm}</p>
                   <p>{narrative?.incoherence}</p>
                   <p>{narrative?.benefits}</p>
                 </div>
-                
-                {/* Clearfix */}
                 <div className="clear-both"></div>
               </div>
             </div>
@@ -238,16 +272,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Poly-Drug Interactions Section */}
+      {/* Poly-Drug Interactions Section — no duplicate header, proper margin */}
       <section id="polydrug" className="py-16 px-4 border-t border-slate-800">
         <div className="max-w-6xl mx-auto">
-          <div className="mb-8">
-            <div className="inline-block bg-cyan-500 text-black px-3 py-2 font-bold text-lg mb-3 rounded">
-              INTERACTIONS
-            </div>
-            <h2 className="text-4xl font-bold mb-2">Poly-Drug Interactions</h2>
-            <p className="text-lg text-cyan-400">The Lethal Combinations</p>
-          </div>
           <PolyDrugInteractions />
         </div>
       </section>
